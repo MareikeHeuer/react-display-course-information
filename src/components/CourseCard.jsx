@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function CourseCard() {
   const [courseCardData, setCourseCardData] = useState(null);
@@ -17,7 +18,7 @@ function CourseCard() {
     <div>
       {courseCardData &&
         courseCardData.map((apiData) => (
-          <div>
+          <div key={uuidv4()}>
             <h2>{apiData.title}</h2>
             <p>{apiData.next_start_formatted}</p>
             <button>View program &#8594;</button>
