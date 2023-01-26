@@ -20,6 +20,7 @@ function CourseCard() {
           <div>
             <h2>{apiData.title}</h2>
             <p>{apiData.next_start_formatted}</p>
+            <button>View program &#8594;</button>
           </div>
         ))}
     </div>
