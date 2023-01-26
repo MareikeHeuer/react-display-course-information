@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 function CourseInfo() {
   const [ip, setIp] = useState(null);
+  const [locationData, setLocationData] = useState("");
   const [courseInfoData, setCourseInfoData] = useState(null);
   const { slug } = useParams();
   console.log(slug);
@@ -13,7 +14,18 @@ function CourseInfo() {
       .then((res) => res.json())
       .then((iPData) => {
         setIp(iPData);
-        console.log(iPData);
+        // console.log(iPData);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch(
+      "http://api.ipstack.com/134.201.250.155?access_key=2364592fb90c827cd52868cc323d5c90"
+    )
+      .then((res) => res.json())
+      .then((locationData) => {
+        setIp(locationData);
+        console.log(locationData);
       });
   }, []);
 
