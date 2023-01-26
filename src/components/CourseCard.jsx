@@ -15,7 +15,7 @@ function CourseCard() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="course-card--container">
       {courseCardData &&
         courseCardData.map((apiData) => (
           <div key={uuidv4()} className="course-card">

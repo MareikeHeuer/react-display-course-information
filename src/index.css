@@ -9,7 +9,9 @@ body {
   height: 100%;
 }
 
-.container {
+/* CourseCard */
+
+.course-card--container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
