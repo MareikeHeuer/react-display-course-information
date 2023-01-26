@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -42,8 +43,14 @@ function CourseInfo() {
     courseInfoData && (
       <div>
         <h1>{courseInfoData.description}</h1>
-        <h2>{`Start date: ${courseInfoData.start_dates[0]}`}</h2>
-        <p>{`Following start dates: ${courseInfoData.start_dates[1]}, ${courseInfoData.start_dates[2]}`}</p>
+        <h2>{`Start date: ${moment(courseInfoData.start_dates[0]).format(
+          "dddd, MMMM Do, YYYY"
+        )}`}</h2>
+        <p>{`Following start dates: ${moment(
+          courseInfoData.start_dates[1]
+        ).format("dddd, MMMM Do, YYYY")} | ${moment(
+          courseInfoData.start_dates[2]
+        ).format("dddd, MMMM Do, YYYY")}`}</p>
 
         {locationData && (
           <p>
