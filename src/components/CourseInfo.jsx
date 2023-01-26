@@ -8,14 +8,12 @@ function CourseInfo() {
   const [locationData, setLocationData] = useState("");
   const [courseInfoData, setCourseInfoData] = useState(null);
   const { slug } = useParams();
-  console.log(slug);
 
   useEffect(() => {
     fetch("https://api.ipify.org?format=json")
       .then((res) => res.json())
       .then((iPData) => {
         setIp(iPData);
-        // console.log(iPData);
       });
   }, []);
 
@@ -26,7 +24,6 @@ function CourseInfo() {
       .then((res) => res.json())
       .then((locationData) => {
         setLocationData(locationData);
-        console.log(locationData);
       });
   }, [ip]);
 
@@ -35,7 +32,6 @@ function CourseInfo() {
       .then((res) => res.json())
       .then((apiData) => {
         setCourseInfoData(apiData);
-        // console.log(apiData);
       });
   }, [slug]);
 
