@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -37,8 +38,14 @@ function CourseInfo() {
 
   return (
     courseInfoData && (
-      <div>
+      <div className="course-info--container">
         <h1>{courseInfoData.description}</h1>
+        <div className="img-wrapper">
+          <img
+            src="https://images.careerfoundry.com/public/frontpages/pp-feature/full-stack-web-development-course-header-418-204.jpg"
+            alt="Headshot of smiling woman"
+          />
+        </div>
         <h2>{`Start date: ${moment(courseInfoData.start_dates[0]).format(
           "dddd, MMMM Do, YYYY"
         )}`}</h2>
@@ -49,13 +56,16 @@ function CourseInfo() {
         ).format("dddd, MMMM Do, YYYY")}`}</p>
 
         {locationData && (
-          <p>
+          <p className="course-info--price">
             Price:{" "}
             {locationData.continent_code === "EU"
               ? `€${courseInfoData.prices[1].amount}`
               : `$${courseInfoData.prices[0].amount}`}
           </p>
         )}
+        <Link to="/">
+          <button className="course-card--button">Back to courselist </button>
+        </Link>
       </div>
     )
   );

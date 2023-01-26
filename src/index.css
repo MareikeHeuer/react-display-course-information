@@ -62,3 +62,47 @@ body {
   border-radius: 4px;
   cursor: pointer;
 }
+
+/* CourseInfo */
+
+.course-info--container {
+  background-color: #223b50;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 150px;
+}
+
+.course-info--container h1,
+h2,
+p {
+  color: white;
+  font-family: sans-serif;
+}
+
+.course-info--container h1 {
+  font-weight: 530;
+  margin-bottom: 10px;
+}
+
+.course-info--container h2 {
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.course-info--container img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.img-wrapper {
+  width: 40%;
+  margin-bottom: 5px;
+}
+
+.course-info--price {
+  margin-bottom: 50px;
+}
