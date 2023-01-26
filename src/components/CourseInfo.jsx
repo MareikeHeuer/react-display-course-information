@@ -17,9 +17,13 @@ function CourseInfo() {
   }, [slug]);
 
   return (
-    <div>
-      <h1>This is the course info component</h1>
-    </div>
+    courseInfoData && (
+      <div>
+        <h1>{courseInfoData.description}</h1>
+        <h2>{courseInfoData.start_dates[0]}</h2>
+        <p>{`Following start dates: ${courseInfoData.start_dates[1]} | ${courseInfoData.start_dates[2]}`}</p>
+      </div>
+    )
   );
 }
 
