@@ -20,14 +20,14 @@ function CourseInfo() {
 
   useEffect(() => {
     fetch(
-      "http://api.ipstack.com/134.201.250.155?access_key=2364592fb90c827cd52868cc323d5c90"
+      `http://api.ipstack.com/${ip}?access_key=2364592fb90c827cd52868cc323d5c90`
     )
       .then((res) => res.json())
       .then((locationData) => {
-        setIp(locationData);
+        setLocationData(locationData);
         console.log(locationData);
       });
-  }, []);
+  }, [ip]);
 
   useEffect(() => {
     fetch(`https://private-e05942-courses22.apiary-mock.com/courses/${slug}`)
@@ -42,8 +42,17 @@ function CourseInfo() {
     courseInfoData && (
       <div>
         <h1>{courseInfoData.description}</h1>
-        <h2>{courseInfoData.start_dates[0]}</h2>
-        <p>{`Following start dates: ${courseInfoData.start_dates[1]} | ${courseInfoData.start_dates[2]}`}</p>
+        <h2>{`Start date: ${courseInfoData.start_dates[0]}`}</h2>
+        <p>{`Following start dates: ${courseInfoData.start_dates[1]}, ${courseInfoData.start_dates[2]}`}</p>
+
+        {locationData && (
+          <p>
+            Price:{" "}
+            {locationData.continent_code === "EU"
+              ? `€${courseInfoData.prices[1].amount}`
+              : `$${courseInfoData.prices[0].amount}`}
+          </p>
+        )}
       </div>
     )
   );
